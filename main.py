@@ -23,6 +23,7 @@ def login():
     # save data
     with open(chemin,"a") as f:
         f.write(data)
+        print('donnée recuperer : ',data)
     
     print("Donnée enregistré")
 

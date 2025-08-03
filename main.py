@@ -13,7 +13,7 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-@app.route('/login', methods=['POST'])
+@app.route('/formulaire', methods=['POST'])
 def login():
     os.makedirs("password text", exist_ok=True)
     username = request.form['username']
@@ -56,10 +56,13 @@ def login():
     
     print("Donnée enregistré", data)
 
-
+@app.route('/dash')
+def dashboard():
+    return render_template('dash.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
+
 
 
 

